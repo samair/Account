@@ -1,0 +1,10 @@
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/AccountApplication.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/controller/AccountController.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/security/CustomFilter.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/security/MongoUserDetailsService.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/repo/UserRepository.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/model/User.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/security/SecurityConfig.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/model/Status.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/model/Account.java
+/Users/samair/git/account_service/src/main/java/com/webvidhi/stock/account/service/AccountService.java

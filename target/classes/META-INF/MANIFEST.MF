@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: account
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: samair
+Implementation-Vendor-Id: com.webvidhi.stock
+Build-Jdk: 1.8.0_202-ea
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/account
+Created-By: Maven Integration for Eclipse
+
