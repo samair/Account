@@ -2,15 +2,15 @@
 spring:
   application:
      name: accountService
- # data:
- #   mongodb:
- #     uri: mongodb://heroku_xfzvzfh2:b1sd64c7cieprod2i3554mhnuc@ds157956.mlab.com:57956/heroku_xfzvzfh2
+  data:
+    mongodb:
+      uri: mongodb://heroku_xfzvzfh2:b1sd64c7cieprod2i3554mhnuc@ds157956.mlab.com:57956/heroku_xfzvzfh2
 
 # Discovery Server Access
 eureka:
   client:
     serviceUrl:
-      defaultZone: https://eureka-service-stocks.herokuapp.com/eureka/eureka
+      defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
 
 # HTTP Server
 server:
