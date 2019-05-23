@@ -14,7 +14,10 @@ import com.webvidhi.stock.account.model.Status;
 import com.webvidhi.stock.account.model.User;
 import com.webvidhi.stock.account.service.AccountService;
 
+import io.swagger.annotations.Api;
+
 @RestController
+@Api(value="Account Controller")
 public class AccountController {
 	
 	@Autowired
