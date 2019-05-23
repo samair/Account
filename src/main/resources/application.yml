@@ -11,6 +11,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
 
 # HTTP Server
 server:
