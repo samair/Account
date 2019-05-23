@@ -46,7 +46,7 @@ public class AccountController {
 		
 		
 	}
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public boolean login(@RequestBody User user) {
 		
 		return acService.validate(user.getUserName(), user.getPassword());
