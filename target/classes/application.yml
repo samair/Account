@@ -10,7 +10,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: https://eureka-service-stocks.herokuapp.com/eureka/eureka
 
 # HTTP Server
 server:
