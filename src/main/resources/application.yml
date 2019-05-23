@@ -11,10 +11,15 @@ eureka:
   client:
     serviceUrl:
       defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
+     
+     
+ ---
+spring:
+  profiles: heroku
+eureka:
   instance:
     hostname: ${DOMAIN_NAME}
     nonSecurePort: 80
-
 # HTTP Server
 server:
   port: 8082   # HTTP (Tomcat) port
