@@ -1,14 +1,7 @@
 package com.webvidhi.stock.account.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-
-import com.webvidhi.stock.account.service.AccountService;
-
 public class User {
 	
-	@Autowired
-	private AccountService acService;
 	
 	private String userName;
 	
