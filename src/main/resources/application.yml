@@ -5,7 +5,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://heroku_xfzvzfh2:b1sd64c7cieprod2i3554mhnuc@ds157956.mlab.com:57956/heroku_xfzvzfh2
-  profiles: heroku
+
 
 # Discovery Server Access
 eureka:
@@ -15,7 +15,6 @@ eureka:
   instance:
     hostname: ${DOMAIN_NAME}
     nonSecurePort: 80
-    
 # HTTP Server
 server:
   port: 8082   # HTTP (Tomcat) port
