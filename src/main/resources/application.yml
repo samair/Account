@@ -1,6 +1,5 @@
 # Spring Properties
 spring:
-  profiles: heroku  
   application:
      name: accountService
   data:
