@@ -1,5 +1,6 @@
 # Spring Properties
 spring:
+  profiles: heroku  
   application:
      name: accountService
   data:
@@ -8,14 +9,23 @@ spring:
 
 
 # Discovery Server Access
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
+#  instance:
+#    hostname: ${DOMAIN_NAME}
+    
 eureka:
   client:
-    registerWithEureka: true
-    fetchRegistry: true
     serviceUrl:
-      defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
+      defaultZone: ${EUREKA_URL:http://localhost:5000}/eureka/
   instance:
     hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+
     
 # HTTP Server
 server:
