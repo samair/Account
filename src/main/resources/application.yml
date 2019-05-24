@@ -10,6 +10,8 @@ spring:
 # Discovery Server Access
 eureka:
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: https://eureka-service-stocks.herokuapp.com/eureka
   instance:
