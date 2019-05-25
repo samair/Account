@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webvidhi.stock.account.model.Account;
@@ -17,6 +18,7 @@ import com.webvidhi.stock.account.service.AccountService;
 import io.swagger.annotations.Api;
 
 @RestController
+@RequestMapping("/acc/")
 @Api(value="Account Controller")
 public class AccountController {
 	
