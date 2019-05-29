@@ -29,7 +29,7 @@ public class EmailService {
 		
 		Email from = new Email("no-reply@stocks.com");
 	    String subject = "OTP for stock account verification";
-	    Email to = new Email("emailId");
+	    Email to = new Email(emailId);
 	    Content content = new Content("text/plain", "OTP : "+otpGenerator.getOTP());
 	    Mail mail = new Mail(from, subject, to, content);
 
