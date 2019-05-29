@@ -61,9 +61,9 @@ public class AccountController {
 		
 	}
 	@PostMapping("/otp")
-	public boolean otp(@RequestBody String emailID) {
+	public boolean otp(@RequestBody User user) {
 		
-		return emailService.sendMail(emailID);
+		return emailService.sendMail(user.getUserName());
 		
 	}
 	
