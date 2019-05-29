@@ -16,6 +16,7 @@ import com.webvidhi.stock.account.model.Account;
 import com.webvidhi.stock.account.model.Status;
 import com.webvidhi.stock.account.model.User;
 import com.webvidhi.stock.account.service.AccountService;
+import com.webvidhi.stock.account.service.EmailService;
 
 import io.swagger.annotations.Api;
 @CrossOrigin
@@ -26,6 +27,9 @@ public class AccountController {
 	
 	@Autowired
 	private AccountService acService;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@GetMapping("/accounts")
 	public List<Account> hello() {
@@ -56,6 +60,13 @@ public class AccountController {
 		return acService.validate(user.getUserName(), user.getPassword());
 		
 	}
+	@PostMapping("/otp")
+	public boolean otp(@RequestBody String emailID) {
+		
+		return emailService.sendMail(emailID);
+		
+	}
+	
 	
 
 }
