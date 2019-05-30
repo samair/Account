@@ -17,7 +17,7 @@ import com.sendgrid.helpers.mail.objects.Email;
 public class EmailService {
 	
 	@Autowired
-	private OTPGenerator otpGenerator;
+	private OTPService otpGenerator;
 	
 	public static void main(String args[]) {
 		EmailService service = new EmailService();
@@ -30,7 +30,7 @@ public class EmailService {
 		Email from = new Email("no-reply@stocks.com");
 	    String subject = "OTP for stock account verification";
 	    Email to = new Email(emailId);
-	    Content content = new Content("text/plain", "OTP : "+otpGenerator.getOTP());
+	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(emailId));
 	    Mail mail = new Mail(from, subject, to, content);
 
 	    SendGrid sg = new SendGrid("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");

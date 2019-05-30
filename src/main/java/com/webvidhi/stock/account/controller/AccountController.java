@@ -17,6 +17,7 @@ import com.webvidhi.stock.account.model.Status;
 import com.webvidhi.stock.account.model.User;
 import com.webvidhi.stock.account.service.AccountService;
 import com.webvidhi.stock.account.service.EmailService;
+import com.webvidhi.stock.account.service.OTPService;
 
 import io.swagger.annotations.Api;
 @CrossOrigin
@@ -30,6 +31,9 @@ public class AccountController {
 	
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private OTPService otpService;
 	
 	@GetMapping("/accounts")
 	public List<Account> hello() {
@@ -67,6 +71,9 @@ public class AccountController {
 		
 	}
 	
-	
+	@PostMapping("/validateOTP")	
+	public boolean validateOTP(){
+		return otpService.validateOTP();
+	}
 
 }
