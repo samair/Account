@@ -12,6 +12,7 @@ import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Personalization;
 
 @Service
 public class EmailService {
@@ -22,17 +23,45 @@ public class EmailService {
 	public static void main(String args[]) {
 		EmailService service = new EmailService();
 
-	    service.sendMail("tsameerc@gmail.com");
+	    service.sendOTPMail("tsameerc@gmail.com");
 
 	}
-	public boolean sendMail(String emailId) {
+	
+	public boolean sendOTPMail(String emailId) {
 		
 		Email from = new Email("no-reply@stocks.com");
 	    String subject = "OTP for stock account verification";
 	    Email to = new Email(emailId);
 	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(emailId));
-	    Mail mail = new Mail(from, subject, to, content);
+	    Mail mail = new Mail(from,subject,to,content);
+	   // mail.setTemplateId("d-00592446f39243168393c3338a94bce5");
+	    
+
+	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+	    Request request = new Request();
+	    try {
+	      request.setMethod(Method.POST);
+	      request.setEndpoint("mail/send");
+	      request.setBody(mail.build());
+	      Response response = sg.api(request);
+	      System.out.println(response.getStatusCode());
+	      System.out.println(response.getBody());
+	      System.out.println(response.getHeaders());
+	    } catch (IOException ex) {
+	      return false;
+	    }
+	    return true;
+	}
+
+	public boolean sendWelcomeMail(String emailId) {
+		
+		Email from = new Email("no-reply@stocks.com");
+	    String subject = "OTP for stock account verification";
+	    Email to = new Email(emailId);
+	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(emailId));
+	    Mail mail = new Mail(from,subject,to,content);
 	    mail.setTemplateId("d-00592446f39243168393c3338a94bce5");
+	    
 
 	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
 	    Request request = new Request();

@@ -15,6 +15,9 @@ public class AccountService {
 	@Autowired
 	public UserRepository usrRepo;
 	
+	@Autowired
+	public EmailService emailService;
+	
 	public boolean createOrUpdate(Account account) {
 		
 		boolean status = false;
@@ -25,6 +28,9 @@ public class AccountService {
 			}
 			usrRepo.save(account);
 			status = true;
+			
+			//Send a welcome email
+			emailService.sendWelcomeMail(account.getUsername());
 		}
 		catch(Exception e) {
 			System.out.println("exception :" + e.getMessage());

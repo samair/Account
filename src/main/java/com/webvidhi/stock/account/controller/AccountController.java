@@ -67,13 +67,13 @@ public class AccountController {
 	@PostMapping("/otp")
 	public boolean otp(@RequestBody User user) {
 		
-		return emailService.sendMail(user.getUserName());
+		return emailService.sendOTPMail(user.getUserName());
 		
 	}
 	
 	@PostMapping("/validateOTP")	
-	public boolean validateOTP(){
-		return otpService.validateOTP();
+	public boolean validateOTP(@PathVariable String emailId, @PathVariable Integer otp){
+		return otpService.validateOTP(emailId, otp);
 	}
 
 }

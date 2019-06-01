@@ -47,9 +47,20 @@ public class OTPService {
 		
 	}
 
-	public boolean validateOTP() {
+	public boolean validateOTP(String emailId, Integer otpValue) {
+
 		
+		try {
+			Integer otp = otpCache.get(emailId);
+			if (otpValue.equals(otp)) {
+				return true;
+			}
+		} catch (ExecutionException e) {
+	
+			e.printStackTrace();
+		}
+
 		return false;
 	}
-	
+
 }
