@@ -72,8 +72,8 @@ public class AccountController {
 	}
 	
 	@PostMapping("/validateOTP")	
-	public boolean validateOTP(@PathVariable String emailId, @PathVariable Integer otp){
-		return otpService.validateOTP(emailId, otp);
+	public boolean validateOTP(@PathVariable String email, @PathVariable Integer otp){
+		return otpService.validateOTP(email, otp);
 	}
 
 }
