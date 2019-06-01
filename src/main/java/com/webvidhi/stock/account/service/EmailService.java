@@ -57,11 +57,10 @@ public class EmailService {
 	public boolean sendWelcomeMail(Account account) {
 		
 		Email from = new Email("no-reply@stocks.com");
-	    String subject = "OTP for stock account verification";
-	    Email to = new Email(account.getUsername());
-	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(account.getUsername()));
-	    Mail mail = new Mail(from,subject,to,content);
+	    Mail mail = new Mail();
 	    mail.setTemplateId("d-00592446f39243168393c3338a94bce5");
+	    mail.setFrom(from);
+
 	    
 	    Personalization personalization = new Personalization();
 	    personalization.addDynamicTemplateData("name", account.getFirstName());
