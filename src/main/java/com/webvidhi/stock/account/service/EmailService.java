@@ -32,6 +32,7 @@ public class EmailService {
 	    Email to = new Email(emailId);
 	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(emailId));
 	    Mail mail = new Mail(from, subject, to, content);
+	    mail.setTemplateId("d-00592446f39243168393c3338a94bce5");
 
 	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
 	    Request request = new Request();
