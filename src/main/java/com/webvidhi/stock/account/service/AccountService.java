@@ -1,5 +1,6 @@
 package com.webvidhi.stock.account.service;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -72,11 +73,25 @@ public class AccountService {
 		
 		if (null != account ) {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-			
-			//System.out.println(account.getPassword()+ "got :" + encoder.encode(password));
+
 			return encoder.matches(password, account.getPassword());
 			
 		}
+		return false;
+	}
+
+	public boolean verifyAccount(String email, String code) {
+		
+		Account account = usrRepo.findByUserName(email);
+		
+		if (null != account ) {
+			Calendar now = Calendar.getInstance();
+			if (account.getVerificationExpiryTime().compareTo(now.getTime()) > 0 && account.getVerificationCode().contentEquals(code))
+			{
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	

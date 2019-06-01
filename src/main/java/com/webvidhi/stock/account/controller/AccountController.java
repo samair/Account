@@ -76,5 +76,12 @@ public class AccountController {
 	public boolean validateOTP(@PathParam(value = "email") String email,  @PathParam(value = "otp") Integer otp){
 		return otpService.validateOTP(email, otp);
 	}
-
+    
+	@PostMapping("/verifyAccount")
+	public boolean verifyAccount(@PathParam(value = "email") String email, @PathParam(value = "code") String code){
+		
+		return acService.verifyAccount(email,code);
+	}
+		
+	
 }
