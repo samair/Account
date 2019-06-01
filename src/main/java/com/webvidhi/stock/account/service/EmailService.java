@@ -67,7 +67,8 @@ public class EmailService {
 	    personalization.addDynamicTemplateData("name", account.getFirstName());
 	    
 	    String link = "https://frozen-shelf-75821.herokuapp.com/acc/verifyAccount?email="+account.getUsername()+"&code="+account.getVerificationCode();
-        personalization.addDynamicTemplateData("link", link);
+        System.out.println(link);
+	    personalization.addDynamicTemplateData("link", link);
         
         personalization.addTo(new Email(account.getUsername()));
 	    mail.addPersonalization(personalization);
