@@ -77,7 +77,7 @@ public class AccountController {
 		return otpService.validateOTP(email, otp);
 	}
     
-	@PostMapping("/verifyAccount")
+	@GetMapping("/verifyAccount")
 	public boolean verifyAccount(@PathParam(value = "email") String email, @PathParam(value = "code") String code){
 		
 		return acService.verifyAccount(email,code);
