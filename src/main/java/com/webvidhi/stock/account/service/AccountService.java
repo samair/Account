@@ -35,10 +35,10 @@ public class AccountService {
 			account.setVerificationCode(verficationCode);
 			
 			usrRepo.save(account);
-			status = true;
+			
 			
 			//Send a welcome email
-			emailService.sendWelcomeMail(account);
+			status = emailService.sendWelcomeMail(account);
 		}
 		catch(Exception e) {
 			System.out.println("exception :" + e.getMessage());
