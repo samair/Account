@@ -1,6 +1,9 @@
 package com.webvidhi.stock.account.model;
 
+import java.time.ZonedDateTime;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -24,7 +27,11 @@ public class Account implements UserDetails {
 	
 	private String password;
 	
+	private String verificationCode;
+	
 	private List<SimpleGrantedAuthority> authorities;
+	
+	private Date verificationExpiryTime;
 	
 	public Account(String username, String password, List<SimpleGrantedAuthority> authorities) {
 		this.username = username;
@@ -116,6 +123,25 @@ public class Account implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
+	public Date getVerificationExpiryTime() {
+		return verificationExpiryTime;
+	}
+
+	public void setVerificationExpiryTime(int expiryTimeMins) {
+	    
+	    Calendar now = Calendar.getInstance();
+	    now.add(Calendar.MINUTE, expiryTimeMins);
+		this.verificationExpiryTime = now.getTime();
 	}
 
 }

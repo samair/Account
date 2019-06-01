@@ -1,6 +1,7 @@
 package com.webvidhi.stock.account.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,11 +27,18 @@ public class AccountService {
 				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 				account.setPassword(encoder.encode(account.getPassword()));
 			}
+			//Set Account verfication token and expiry
+			account.setVerificationExpiryTime(120);
+			
+			String verficationCode = UUID.randomUUID().toString();
+			
+			account.setVerificationCode(verficationCode);
+			
 			usrRepo.save(account);
 			status = true;
 			
 			//Send a welcome email
-			emailService.sendWelcomeMail(account.getUsername());
+			emailService.sendWelcomeMail(account);
 		}
 		catch(Exception e) {
 			System.out.println("exception :" + e.getMessage());

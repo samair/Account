@@ -13,6 +13,7 @@ import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
+import com.webvidhi.stock.account.model.Account;
 
 @Service
 public class EmailService {
@@ -53,16 +54,21 @@ public class EmailService {
 	    return true;
 	}
 
-	public boolean sendWelcomeMail(String emailId) {
+	public boolean sendWelcomeMail(Account account) {
 		
 		Email from = new Email("no-reply@stocks.com");
 	    String subject = "OTP for stock account verification";
-	    Email to = new Email(emailId);
-	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(emailId));
+	    Email to = new Email(account.getUsername());
+	    Content content = new Content("text/plain", "OTP : "+otpGenerator.generateOTP(account.getUsername()));
 	    Mail mail = new Mail(from,subject,to,content);
 	    mail.setTemplateId("d-00592446f39243168393c3338a94bce5");
 	    
-
+	    Personalization personalization = new Personalization();
+	    personalization.addDynamicTemplateData("name", account.getFirstName());
+        personalization.addDynamicTemplateData("link", "https://frozen-shelf-75821.herokuapp.com/acc/");
+	  
+	    mail.addPersonalization(personalization);
+	    
 	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
 	    Request request = new Request();
 	    try {
