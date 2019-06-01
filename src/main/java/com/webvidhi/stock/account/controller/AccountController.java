@@ -2,6 +2,7 @@ package com.webvidhi.stock.account.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -72,7 +73,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/validateOTP")	
-	public boolean validateOTP(@PathVariable String email, @PathVariable Integer otp){
+	public boolean validateOTP(@PathParam(value = "email") String email,  @PathParam(value = "otp") Integer otp){
 		return otpService.validateOTP(email, otp);
 	}
 
