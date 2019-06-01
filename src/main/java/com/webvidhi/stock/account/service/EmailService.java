@@ -80,6 +80,7 @@ public class EmailService {
 	      System.out.println(response.getBody());
 	      System.out.println(response.getHeaders());
 	    } catch (IOException ex) {
+	      System.out.println(ex.getMessage());
 	      return false;
 	    }
 	    return true;
