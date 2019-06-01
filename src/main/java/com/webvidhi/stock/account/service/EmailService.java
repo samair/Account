@@ -66,7 +66,7 @@ public class EmailService {
 	    Personalization personalization = new Personalization();
 	    personalization.addDynamicTemplateData("name", account.getFirstName());
         personalization.addDynamicTemplateData("link", "https://frozen-shelf-75821.herokuapp.com/acc/");
-	  
+        personalization.addTo(new Email(account.getUsername()));
 	    mail.addPersonalization(personalization);
 	    
 	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
