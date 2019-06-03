@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,7 @@ public class AccountService {
 			String verficationCode = UUID.randomUUID().toString();
 			
 			account.setVerificationCode(verficationCode);
+			account.setId( new ObjectId());
 			
 			usrRepo.save(account);
 			

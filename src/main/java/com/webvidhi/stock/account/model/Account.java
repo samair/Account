@@ -144,4 +144,9 @@ public class Account implements UserDetails {
 		this.verificationExpiryTime = now.getTime();
 	}
 
+	public void setId(ObjectId objectId) {
+		this._id = objectId;
+		
+	}
+
 }
